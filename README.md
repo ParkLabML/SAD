@@ -16,7 +16,7 @@
 
 ## Overview
 
-We introduce **SAD (Safe Annealed Denoising)**, a training-free safety mechanism for Masked Discrete Language Models (MDLMs) such as [LLaDA](https://github.com/ML-GSAI/LLaDA), [Dream](https://github.com/Dream-org/Dream), and [MDLM](https://github.com/kuleshov-group/mdlm). SAD steers token predictions **away from unsafe content during sampling** — no retraining, no fine-tuning, no classifier in the loop.
+We introduce **SAD (Safety Aware Denoising)**, a training-free safety mechanism for Masked Discrete Language Models (MDLMs) such as [LLaDA](https://github.com/ML-GSAI/LLaDA), [Dream](https://github.com/Dream-org/Dream), and [MDLM](https://github.com/kuleshov-group/mdlm). SAD steers token predictions **away from unsafe content during sampling** — no retraining, no fine-tuning, no classifier in the loop.
 
 The core idea: at each denoising step within a guidance window, we compute the expected denoised embedding under the base model and a pre-built *unsafe negation set*, then push the output embedding away from the unsafe direction by strength β*:
 
@@ -72,15 +72,21 @@ git clone --recurse-submodules https://github.com/ParkLabML/SAD.git
 If you find this work useful, please cite:
 
 ```bibtex
-@misc{yusuf2026safetyawaredenoisertextdiffusion,
-      title={The Safety-Aware Denoiser for Text Diffusion Models}, 
-      author={Amman Yusuf and Zhejun Jiang and Mijung Park},
-      year={2026},
-      eprint={2605.08116},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2605.08116}, 
+@InProceedings{pmlr-v306-yusuf26a,
+  title = 	 {The Safety-Aware Denoiser for Text Diffusion Models},
+  author =       {Yusuf, Amman and Jiang, Zhejun and Park, Mijung},
+  booktitle = 	 {Proceedings of the 43rd International Conference on Machine Learning},
+  pages = 	 {152614--152644},
+  year = 	 {2026},
+  editor = 	 {Zhang, Tong and Dudik, Miroslav and Jaggi, Martin and Agarwal, Alekh and Li, Sharon and Schuurmans, Dale and Zhu, Jerry and Berkenkamp, Felix and Dong, Hanze and Bietti, Alberto},
+  volume = 	 {306},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {06--11 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v306/main/assets/yusuf26a/yusuf26a.pdf},
+  url = 	 {https://proceedings.mlr.press/v306/yusuf26a.html},
 }
+
 ```
 
 ---
